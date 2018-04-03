@@ -32,6 +32,7 @@ services:
   nexusa:
     build: ./nexus-ha
     volumes:
+      - ~/nexus-data-ha/node_a:/nexus-data
       - ~/nexus-data-ha/blobs:/opt/sonatype/sonatype-work/nexus3/blobs 
       - ~/nexus-data-ha/java-prefs:/opt/sonatype/sonatype-work/nexus3/javaprefs
     ports:
@@ -44,6 +45,7 @@ services:
   nexusb:
     build: ./nexus-ha
     volumes:
+      - ~/nexus-data-ha/node_b:/nexus-data
       - ~/nexus-data-ha/blobs:/opt/sonatype/sonatype-work/nexus3/blobs 
       - ~/nexus-data-ha/java-prefs:/opt/sonatype/sonatype-work/nexus3/javaprefs
     ports:
@@ -56,6 +58,7 @@ services:
   nexusc:
     build: ./nexus-ha
     volumes:
+      - ~/nexus-data-ha/node_c:/nexus-data
       - ~/nexus-data-ha/blobs:/opt/sonatype/sonatype-work/nexus3/blobs 
       - ~/nexus-data-ha/java-prefs:/opt/sonatype/sonatype-work/nexus3/javaprefs
     ports:

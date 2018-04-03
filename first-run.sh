@@ -2,6 +2,7 @@
 
 # Creates directories to be mounted to containers as volumes
 mkdir ~/iq-data ~/nexus-data-ha ~/nexus-data-ha/java-prefs ~/nexus-data-ha/blobs
+mkdir ~/nexus-data-ha/node_a ~/nexus-data-ha/node_b ~/nexus-data-ha/node_c
 
 # Stands up test environment and builds nginix container to put our config in
 #docker-compose up -d
