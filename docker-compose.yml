@@ -24,6 +24,8 @@ services:
       - '18443:18443'
     links:
       - nexusa
+      - nexusb
+      - nexusc
       - iq-server
     command: [ nginx, '-g', 'daemon off;' ]
 
@@ -37,6 +39,8 @@ services:
     image: my-nexus-ha:3.9.0
     links:
       - iq-server
+      - nexusb
+      - nexusc
     container_name: nexusa
 
   nexusb:
@@ -49,6 +53,8 @@ services:
     image: my-nexus-ha:3.9.0
     links:
       - iq-server
+      - nexusa
+      - nexusc
     container_name: nexusb
 
   nexusc:
@@ -61,6 +67,8 @@ services:
     image: my-nexus-ha:3.9.0
     links:
       - iq-server
+      - nexusa
+      - nexusb
     container_name: nexusc
 
   iq-server:
