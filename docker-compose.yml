@@ -28,7 +28,7 @@ services:
     command: [ nginx, '-g', 'daemon off;' ]
 
   nexus:
-    #build: nexus
+    build: ./nexus-ha
     volumes:
       - ~/nexus-data:/nexus-data
     ports:
