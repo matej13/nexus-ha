@@ -1,4 +1,4 @@
-FROM       sonatype/nexus3
+FROM       sonatype/nexus3:3.9.0
 MAINTAINER Curt Yanko <cmyanko+docker@gmail.com>
 
 USER root

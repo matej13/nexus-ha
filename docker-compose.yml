@@ -17,7 +17,7 @@ version: '3'
 services:
   nginx-proxy:
     build: ./nginx
-    image: sonatype_nginx-proxy:1.0
+    image: nexus_ha_nginx-proxy:1.0
     ports:
       - '443:443'
       - '5000:5000'
@@ -39,8 +39,6 @@ services:
     image: my-nexus-ha:3.9.0
     links:
       - iq-server
-      - nexusb
-      - nexusc
     container_name: nexusa
 
   nexusb:
@@ -53,8 +51,6 @@ services:
     image: my-nexus-ha:3.9.0
     links:
       - iq-server
-      - nexusa
-      - nexusc
     container_name: nexusb
 
   nexusc:
@@ -67,8 +63,6 @@ services:
     image: my-nexus-ha:3.9.0
     links:
       - iq-server
-      - nexusa
-      - nexusb
     container_name: nexusc
 
   iq-server:
