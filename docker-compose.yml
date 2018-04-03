@@ -23,20 +23,45 @@ services:
       - '5000:5000'
       - '18443:18443'
     links:
-      - nexus
+      - nexusa
       - iq-server
     command: [ nginx, '-g', 'daemon off;' ]
 
-  nexus:
-    #build: nexus
+  nexusa:
+    build: ./nexus-ha
     volumes:
-      - ~/nexus-data:/nexus-data
+      - ~/nexus-data-ha/blobs:/opt/sonatype/sonatype-work/nexus3/blobs 
+      - ~/nexus-data-ha/java-prefs:/opt/sonatype/sonatype-work/nexus3/javaprefs
     ports:
       - "8081:8081"
-    image: sonatype/nexus3:3.9.0
+    image: my-nexus-ha:3.9.0
     links:
       - iq-server
-    container_name: nexus
+    container_name: nexusa
+
+  nexusb:
+    build: ./nexus-ha
+    volumes:
+      - ~/nexus-data-ha/blobs:/opt/sonatype/sonatype-work/nexus3/blobs 
+      - ~/nexus-data-ha/java-prefs:/opt/sonatype/sonatype-work/nexus3/javaprefs
+    ports:
+      - "8082:8081"
+    image: my-nexus-ha:3.9.0
+    links:
+      - iq-server
+    container_name: nexusb
+
+  nexusc:
+    build: ./nexus-ha
+    volumes:
+      - ~/nexus-data-ha/blobs:/opt/sonatype/sonatype-work/nexus3/blobs 
+      - ~/nexus-data-ha/java-prefs:/opt/sonatype/sonatype-work/nexus3/javaprefs
+    ports:
+      - "8083:8081"
+    image: my-nexus-ha:3.9.0
+    links:
+      - iq-server
+    container_name: nexusc
 
   iq-server:
     build: ./iq-server
