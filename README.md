@@ -1,6 +1,6 @@
-# Nexus Platform with Docker Support, behind Nginx
+# Nexus Platform with Nexus Repo-HAC & Docker Support, behind Nginx
 
-This is a template for deploying Nexus Repository Manager and IQ Server behind an NGINX proxy to offload SSL
+This is a template for deploying Nexus Repository HA-C and IQ Server behind an NGINX proxy to offload SSL
 
 I also add two aliases to my /etc/hosts file to match the names of the containers and simulate DNS from outside of docker host but this will setup and be accessible over http wtihout them:
 
@@ -16,12 +16,12 @@ I also add two aliases to my /etc/hosts file to match the names of the container
 - Docker Private Registry accessible via https://nexus:5000  (push)
 - IQ Server accessible via https://iq-server or http://localhost:8070
 
-## Operations
+## Operations - TODO  Update for HA-C
 
 To create and run the Nginx proxy, Nexus Repository Manager and IQ Servver, run:
 
 ```
-./demo-setup.sh
+./first-run.sh
 ```
 
 To stop, use docker-compose:
